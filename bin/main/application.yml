@@ -1,0 +1,22 @@
+# server쪽 yml
+
+server:
+  port: 8761
+spring:
+  application:
+    name: server
+  boot:  # spring boot admin 모니터링 기능 이용을 위한 설정 부분
+    admin:
+      context-path: /admin
+management: # 엔트포인트 노출 설정 애플리케이션을 배포하는 경우 인증 없이 모든 액추에이터 끝점에 액세스
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+eureka:
+  instance:
+    hostname: localhost
+    prefer-ip-address: true  #instance가 client 보다 위에 있게
+  client:
+    register-with-eureka: false  #서버라서 false
